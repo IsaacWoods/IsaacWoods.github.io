@@ -1,13 +1,36 @@
 ---
 ---
 
+@use "reset";
+@use "highlights";
+@use "svg-icons";
+
 //
-// IMPORTS
+// VARIABLES
 //
 
-@import "reset";
-@import "variables";
-// Syntax highlighting @import is at the bottom of this file
+// Colors
+$blue: #4183C4;
+
+// Grays
+$black: #000;
+$darkerGray: #222;
+$darkGray: #333;
+$gray: #666;
+$lightGray: #eee;
+$white: #fff;
+
+// Font stacks
+$helvetica: Helvetica, Arial, sans-serif;
+$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$georgia: Georgia, serif;
+
+// Mobile breakpoints
+@mixin mobile {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}
 
 /**************/
 /* BASE RULES */
@@ -18,7 +41,7 @@ html {
 }
 
 body {
-	background: $white;
+  background: $white;
   font: 18px/1.4 $helvetica;
   color: $darkGray;
 }
@@ -28,6 +51,10 @@ body {
   max-width: 740px;
   padding: 0 10px;
   width: 100%;
+}
+
+hr {
+  color: #aaa;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -282,8 +309,3 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
-
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-@import "highlights";
-@import "svg-icons";
